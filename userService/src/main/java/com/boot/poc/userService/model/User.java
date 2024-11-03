@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.boot.poc.orderService.model.Order;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @Data
@@ -16,4 +20,8 @@ public class User {
     private Long id;
     private String userName;
     private String userEmail;
+    @ElementCollection
+    @CollectionTable(name = "user_orders", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "order_id")
+    private List<Long> orderIds = new ArrayList<>();
 }
