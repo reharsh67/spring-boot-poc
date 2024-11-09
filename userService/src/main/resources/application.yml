@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: useService
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/poc_schema
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
