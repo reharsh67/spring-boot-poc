@@ -1,6 +1,6 @@
 spring:
   application:
-    name: useService
+    name: AuthService
 
   datasource:
     url: jdbc:mysql://localhost:3306/poc_schema
@@ -8,14 +8,14 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
 server:
-  port: 8081
+  port: 8084
 
 logging:
   level:

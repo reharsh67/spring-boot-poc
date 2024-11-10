@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.boot.poc.orderService.model.Order;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +19,7 @@ public class User {
     private Long id;
     private String userName;
     private String userEmail;
+    private transient String password;
     @ElementCollection
     @CollectionTable(name = "user_orders", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "order_id")

@@ -20,3 +20,5 @@ server:
 logging:
   level:
     root: INFO
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG
