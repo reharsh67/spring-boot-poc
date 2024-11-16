@@ -1,52 +1,5 @@
 spring:
   application:
     name: APIGateway
-  cloud:
-    gateway:
-      routes:
-        - id: AuthService
-          uri: lb://AUTHSERVICE
-          predicates:
-            - Path=/auth/**
-        - id: useService
-          uri: lb://USESERVICE
-          predicates:
-            - Path=/users/**
-          filters:
-            - AuthFilter
-        - id: productService
-          uri: lb://PRODUCTSERVICE
-          predicates:
-            - Path=/products/**
-          filters:
-            - AuthFilter
-        - id: orderService
-          uri: lb://ORDERSERVICE
-          predicates:
-            - Path=/orders/**
-          filters:
-            - AuthFilter
-
-      default-filters:
-        - StripPrefix=0
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8084/auth
-
-  web:
-    resources:
-      add-mappings: false
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-      register-with-eureka: true
-      fetch-registry: true
-  instance:
-    preferIpAddress: true
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-    org.springframework.web: DEBUG
+  config:
+    import: optional:configserver:http://localhost:8888

@@ -1,7 +1,10 @@
 spring:
   application:
     name: ServiceDiscovery
-
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
   freemarker:
     template-loader-path: classpath:/templates/
     prefer-file-system-access: false
